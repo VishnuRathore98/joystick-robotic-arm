@@ -5,7 +5,7 @@
 // Arm servo motor pin
 #define arm_pin 5
 // Wrist servo motor pin
-#define wrist_pin 7
+#define wrist_pin 6
 // Claw servo motor pin
 #define claw_pin 9
 
@@ -42,21 +42,17 @@ void loop(){
   val1Y_arm=map(val1Y_arm, 0, 1024, 0, 180);
    
   val2X_wrist=map(val2X_wrist, 0, 1024, 0, 180);
-  val2Y_claw=map(val2Y_claw, 0, 1024, 0, 180);
+  val2Y_claw=map(val2Y_claw, 0, 1024, 90, 170);
 
 //  Serial.print("X: ");
 //  Serial.println(val1X_shoulder);
   shoulder_motor.write(val1X_shoulder);
 
-//  Serial.print("Y: ");
-//  Serial.println(val1Y_arm);
   arm_motor.write(val1Y_arm);
 
-//  Serial.print("X: ");
-//  Serial.println();
   wrist_motor.write(val2X_wrist);
 
-//  Serial.print("Y: ");
-//  Serial.println();
   claw_motor.write(val2Y_claw);
+  delay(100);
+
 }
